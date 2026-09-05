@@ -1,13 +1,26 @@
-/* reset.css */
+/* reset.css - Unified CSS Reset */
 
-/* Box sizing */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* Remove default margin */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Remove default margins */
 body,
 h1,
 h2,
@@ -24,32 +37,35 @@ dd {
 }
 
 /* Remove list styles */
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
 ul[role="list"],
 ol[role="list"] {
   list-style: none;
 }
 
-/* Set core body defaults */
-body {
-  min-height: 100vh;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* Anchor defaults */
+/* Links */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* Image defaults */
+/* Images */
 img,
-picture {
-  max-width: 100%;
+picture,
+video,
+canvas,
+svg {
   display: block;
+  max-width: 100%;
+  height: auto;
 }
 
-/* Button defaults */
+/* Buttons */
 button {
   border: none;
   background: none;
@@ -59,21 +75,40 @@ button {
   cursor: pointer;
 }
 
-/* Input defaults */
+/* Form elements */
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
 input,
 textarea {
-  font: inherit;
+  width: 100%;
 }
 
-/* Remove default padding on lists */
-ul,
-ol {
-  padding: 0;
-}
-
-/* Remove default border on fieldset */
+/* Remove default fieldset styling */
 fieldset {
   border: 0;
   margin: 0;
   padding: 0;
+}
+
+/* Suppress focus outlines (we'll add our own) */
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+/* Accessibility focus for keyboard navigation */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+a:focus-visible {
+  outline: 2px solid rgba(79, 209, 255, 0.6);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
