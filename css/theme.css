@@ -1,79 +1,303 @@
-/* theme.css */
+/* theme.css - Complete Brand Theme System */
 
 :root {
-  --bg-main: #05060a;
-  --bg-panel: #0b0d14;
-  --bg-overlay: #0f111a;
-
-  --accent-primary: #4fd1ff;
-  --accent-secondary: #ff6bcb;
-  --accent-warning: #ffb347;
-  --accent-success: #4ade80;
-  --accent-danger: #f97373;
-
-  --text-primary: #f9fafb;
-  --text-secondary: #9ca3af;
-  --text-muted: #6b7280;
-
-  --border-soft: #1f2933;
-  --border-strong: #374151;
-
+  /* ===== PRIMARY BRAND COLORS ===== */
+  --primary: #4fd1ff;        /* Bright Cyan - Main accent */
+  --primary-dark: #2ba3d4;   /* Darker cyan for hover/depth */
+  --primary-light: #7fe1ff;  /* Light cyan for highlights */
+  
+  /* ===== SECONDARY BRAND COLORS ===== */
+  --secondary: #ff6bcb;      /* Vibrant Pink/Magenta */
+  --secondary-dark: #e84ba8; /* Darker pink for contrast */
+  --secondary-light: #ff94dd;/* Light pink for accents */
+  
+  /* ===== ACCENT COLORS ===== */
+  --warning: #ffb347;        /* Orange/Gold warning */
+  --success: #4ade80;        /* Green for success states */
+  --danger: #f97373;         /* Red for errors/alerts */
+  --info: #64b5f6;           /* Blue for info */
+  
+  /* ===== NEUTRAL & BACKGROUND ===== */
+  --bg-darkest: #000000;     /* Pure black for depth */
+  --bg-dark: #05060a;        /* Main background - very dark blue-black */
+  --bg-darker: #0a0c12;      /* Slightly lighter dark bg */
+  --bg-panel: #0f1420;       /* Panel/card background */
+  --bg-overlay: #131b2e;     /* Overlay/modal background */
+  --bg-light: #1a2332;       /* Light surface */
+  
+  /* ===== TEXT COLORS ===== */
+  --text-primary: #f9fafb;   /* Main text - almost white */
+  --text-secondary: #9ca3af; /* Secondary text - medium gray */
+  --text-muted: #6b7280;     /* Muted text - darker gray */
+  --text-dim: #4b5563;       /* Very dim text */
+  
+  /* ===== BORDERS & DIVIDERS ===== */
+  --border-soft: #1f2937;    /* Soft border - subtle */
+  --border-medium: #374151;  /* Medium border - visible */
+  --border-strong: #4b5563;  /* Strong border - prominent */
+  --border-primary: rgba(79, 209, 255, 0.3);   /* Primary accent border */
+  --border-secondary: rgba(255, 107, 203, 0.3);/* Secondary accent border */
+  
+  /* ===== SHADOWS & GLOWS ===== */
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 10px 15px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 20px 25px rgba(0, 0, 0, 0.35);
+  --shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.5);
   --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.55);
-  --shadow-glow: 0 0 24px rgba(79, 209, 255, 0.45);
-
+  
+  --glow-primary: 0 0 24px rgba(79, 209, 255, 0.45);
+  --glow-secondary: 0 0 24px rgba(255, 107, 203, 0.35);
+  --glow-success: 0 0 20px rgba(74, 222, 128, 0.3);
+  --glow-danger: 0 0 20px rgba(249, 115, 115, 0.3);
+  
+  /* ===== BORDER RADIUS ===== */
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
-
+  --radius-xl: 24px;
+  --radius-full: 999px;
+  
+  /* ===== TRANSITIONS & ANIMATIONS ===== */
   --transition-fast: 0.15s ease-out;
   --transition-med: 0.25s ease-out;
   --transition-slow: 0.4s ease-out;
+  --transition-slower: 0.6s ease-out;
+  
+  /* ===== TYPOGRAPHY ===== */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", sans-serif;
+  --font-mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+  
+  /* ===== Z-INDEX SCALE ===== */
+  --z-base: 0;
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-modal: 100;
+  --z-popover: 110;
+  --z-tooltip: 120;
+}
 
-  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+/* ===== HTML & BODY SETUP ===== */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 html[data-theme="dark"],
 body {
-  background-color: var(--bg-main);
+  background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
   color: var(--text-primary);
   font-family: var(--font-sans);
+  line-height: 1.6;
+  letter-spacing: 0.3px;
 }
 
+/* ===== TYPOGRAPHY HIERARCHY ===== */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 0.5em 0;
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: var(--primary);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 3vw, 1.875rem);
+}
+
+h4 {
+  font-size: 1.125rem;
+}
+
+p {
+  margin: 0 0 1em 0;
+}
+
+/* ===== LINKS ===== */
 a {
-  color: var(--accent-primary);
-  transition: color var(--transition-fast);
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--transition-fast), text-shadow var(--transition-fast);
+  position: relative;
 }
 
 a:hover {
-  color: var(--accent-secondary);
+  color: var(--primary-light);
+  text-shadow: 0 0 12px rgba(79, 209, 255, 0.3);
 }
 
+a:active {
+  color: var(--primary-dark);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ===== INTERACTIVE ELEMENTS ===== */
 .holo-hover {
   position: relative;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .holo-hover:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+  box-shadow: var(--glow-primary);
+}
+
+.holo-hover:active {
+  transform: translateY(0);
 }
 
 .ripple {
   overflow: hidden;
+  position: relative;
+}
+
+/* Ripple effect on click */
+.ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(79, 209, 255, 0.3);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.ripple:active::after {
+  width: 300px;
+  height: 300px;
+  animation: ripple-animation var(--transition-slow) ease-out;
+}
+
+@keyframes ripple-animation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ===== STATUS INDICATORS ===== */
+.status-ok,
+.status-success {
+  color: var(--success);
+  font-weight: 600;
+}
+
+.status-warn,
+.status-warning {
+  color: var(--warning);
+  font-weight: 600;
+}
+
+.status-bad,
+.status-error,
+.status-danger {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.status-info {
+  color: var(--info);
+  font-weight: 600;
+}
+
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
 }
 
 .text-muted {
   color: var(--text-muted);
 }
 
-.status-ok {
-  color: var(--accent-success);
+.text-dim {
+  color: var(--text-dim);
 }
 
-.status-warn {
-  color: var(--accent-warning);
+/* ===== BADGE STYLES ===== */
+.badge {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
-.status-bad {
-  color: var(--accent-danger);
+.badge-primary {
+  background: rgba(79, 209, 255, 0.15);
+  color: var(--primary);
+  border: 1px solid var(--border-primary);
+}
+
+.badge-secondary {
+  background: rgba(255, 107, 203, 0.15);
+  color: var(--secondary);
+  border: 1px solid var(--border-secondary);
+}
+
+.badge-success {
+  background: rgba(74, 222, 128, 0.15);
+  color: var(--success);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+}
+
+.badge-danger {
+  background: rgba(249, 115, 115, 0.15);
+  color: var(--danger);
+  border: 1px solid rgba(249, 115, 115, 0.3);
+}
+
+/* ===== UTILITY CLASSES ===== */
+.gradient-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+}
+
+.gradient-primary-text {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow-primary {
+  box-shadow: var(--glow-primary);
+}
+
+.glow-secondary {
+  box-shadow: var(--glow-secondary);
+}
+
+.glow-success {
+  box-shadow: var(--glow-success);
+}
+
+.glow-danger {
+  box-shadow: var(--glow-danger);
 }
