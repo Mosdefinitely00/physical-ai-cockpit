@@ -1,0 +1,67 @@
+/* systems.css */
+
+.dash-cpu span {
+  color: var(--accent-primary);
+}
+
+.dash-mem span {
+  color: var(--accent-secondary);
+}
+
+.dash-net span {
+  color: var(--accent-warning);
+}
+
+.dash-sys span {
+  color: var(--accent-success);
+}
+
+#diag-cpu,
+#diag-mem,
+#diag-jitter,
+#diag-drift,
+#diag-noise,
+#diag-anom,
+#diag-stability {
+  transition: color var(--transition-fast);
+}
+
+.stability-high {
+  color: var(--accent-success);
+}
+
+.stability-medium {
+  color: var(--accent-warning);
+}
+
+.stability-low {
+  color: var(--accent-danger);
+}
+
+.auto-state-indicator.mode-manual {
+  color: var(--accent-warning);
+}
+
+.auto-state-indicator.mode-auto {
+  color: var(--accent-success);
+}
+
+.predictive-status.level-low {
+  color: var(--accent-success);
+}
+
+.predictive-status.level-medium {
+  color: var(--accent-warning);
+}
+
+.predictive-status.level-high {
+  color: var(--accent-danger);
+}
+
+.recovery-status.active {
+  color: var(--accent-primary);
+}
+
+.recovery-status.inactive {
+  color: var(--text-muted);
+}
