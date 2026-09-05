@@ -102,3 +102,107 @@
   <script src="js/init.js"></script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Yunas - Physical AI Cockpit</title>
+
+  <!-- Core Styles -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/ui.css">
+  <link rel="stylesheet" href="css/systems.css">
+  <link rel="stylesheet" href="css/cockpit.css">
+</head>
+
+<body>
+
+  <!-- HERO / NAV -->
+  <header class="hero">
+    <h1>Physical AI Operations Cockpit</h1>
+    <button id="theme-toggle" class="holo-hover ripple">Theme</button>
+  </header>
+
+  <!-- CASE STUDIES -->
+  <main>
+    <section class="case-study">Case Study A</section>
+    <section class="case-study">Case Study B</section>
+    <section class="case-study">Case Study C</section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">© 2026 Muhammad Yunas</footer>
+
+  <!-- COCKPIT OVERLAYS -->
+  <div class="ambient-indicator system-load"></div>
+  <div class="ambient-indicator signal-bar"></div>
+  <div class="ambient-indicator health-dot"></div>
+
+  <div class="dashboard-overlay">
+    <div class="dash-item dash-cpu">CPU: <span>0%</span></div>
+    <div class="dash-item dash-mem">MEM: <span>0%</span></div>
+    <div class="dash-item dash-net">NET: <span>0kb/s</span></div>
+    <div class="dash-item dash-sys">SYS: <span>OK</span></div>
+  </div>
+
+  <div class="data-sim-panel">
+    <div class="data-row"><span>Sensor A</span><span id="sensorA">0.00</span></div>
+    <div class="data-row"><span>Sensor B</span><span id="sensorB">0.00</span></div>
+    <div class="data-row"><span>Noise</span><span id="noise">0.00</span></div>
+    <div class="data-row"><span>Packets</span><span id="packet">0 p/s</span></div>
+  </div>
+
+  <div class="diag-panel">
+    <h3 class="diag-title">System Diagnostics</h3>
+    <div class="diag-row"><span>CPU Load</span><span id="diag-cpu">0%</span></div>
+    <div class="diag-row"><span>Memory Pressure</span><span id="diag-mem">0%</span></div>
+    <div class="diag-row"><span>Network Jitter</span><span id="diag-jitter">0.0ms</span></div>
+    <div class="diag-row"><span>Sensor Drift</span><span id="diag-drift">0.00</span></div>
+    <div class="diag-row"><span>Noise Level</span><span id="diag-noise">0.00</span></div>
+    <div class="diag-row"><span>Packet Anomalies</span><span id="diag-anom">0</span></div>
+    <div class="diag-row"><span>Stability Score</span><span id="diag-stability">100</span></div>
+    <div class="diag-alert" id="diag-alert">System Stable</div>
+  </div>
+
+  <div class="auto-state-indicator" id="autoState">Mode: MANUAL</div>
+  <div class="predictive-status" id="predictiveStatus">Failure Risk: LOW</div>
+  <div class="recovery-status" id="recoveryStatus">Recovery: INACTIVE</div>
+
+  <div class="system-map">
+    <canvas id="mapCanvas"></canvas>
+  </div>
+
+  <div class="agent-panel">
+    <div class="agent-row"><span>Alpha</span><span id="agentAlpha">OK</span></div>
+    <div class="agent-row"><span>Beta</span><span id="agentBeta">OK</span></div>
+    <div class="agent-row"><span>Gamma</span><span id="agentGamma">OK</span></div>
+  </div>
+
+  <div class="command-console">
+    <div class="console-output" id="consoleOutput"></div>
+    <input type="text" class="console-input" id="consoleInput" placeholder="> Enter command...">
+  </div>
+
+  <!-- JS SYSTEMS -->
+  <script src="js/core/theme.js"></script>
+  <script src="js/core/cursor.js"></script>
+  <script src="js/core/holographic.js"></script>
+  <script src="js/core/ambient.js"></script>
+  <script src="js/core/sound.js"></script>
+
+  <script src="js/systems/dashboard.js"></script>
+  <script src="js/systems/datasim.js"></script>
+  <script src="js/systems/diagnostics.js"></script>
+  <script src="js/systems/autonomous.js"></script>
+  <script src="js/systems/predictive.js"></script>
+  <script src="js/systems/recovery.js"></script>
+  <script src="js/systems/agents.js"></script>
+
+  <script src="js/map/system-map.js"></script>
+  <script src="js/console/command-console.js"></script>
+  <script src="js/init.js"></script>
+</body>
+</html>
