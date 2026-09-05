@@ -1,0 +1,56 @@
+/* cockpit.css */
+
+body {
+  background: radial-gradient(circle at top, #020617 0%, #020617 35%, #000000 100%);
+}
+
+.dashboard-overlay,
+.data-sim-panel,
+.diag-panel,
+.system-map,
+.agent-panel,
+.command-console {
+  background-image:
+    linear-gradient(rgba(31, 41, 55, 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(31, 41, 55, 0.35) 1px, transparent 1px);
+  background-size: 18px 18px;
+  background-color: rgba(15, 23, 42, 0.96);
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.9), var(--shadow-soft);
+}
+
+.dashboard-overlay:hover,
+.data-sim-panel:hover,
+.diag-panel:hover,
+.system-map:hover,
+.agent-panel:hover,
+.command-console:hover {
+  box-shadow: var(--shadow-glow);
+}
+
+.console-output {
+  color: var(--accent-primary);
+}
+
+.console-output::before {
+  content: "> ";
+  color: var(--accent-secondary);
+}
+
+.agent-row span:last-child {
+  position: relative;
+}
+
+.agent-row span:last-child::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 999px;
+  border: 1px solid rgba(74, 222, 128, 0.4);
+  opacity: 0.0;
+  transition: opacity var(--transition-med);
+}
+
+.agent-row span:last-child.status-alert::after {
+  border-color: rgba(248, 113, 113, 0.7);
+  opacity: 1.0;
+}
